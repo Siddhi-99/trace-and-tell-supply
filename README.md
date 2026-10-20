@@ -42,6 +42,7 @@ npx hardhat node            # RPC http://127.0.0.1:8545, Chain ID 31337
 
 # 4. Deploy (new terminal, in /blockchain)
 npm run deploy              # writes src/contracts/deployment.json + ProductTrackingABI.json
+npm run demo                # optional: adds sample product PRD-1001 (Shipped)
 
 # 5. Start the web app (project root)
 npm install

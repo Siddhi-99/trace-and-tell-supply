@@ -7,10 +7,10 @@ import deployment from "@/contracts/deployment.json";
  * - RPC URL / chain ID default to the local Hardhat node.
  */
 export const CONTRACT_ADDRESS: string =
-  (import.meta.env.VITE_CONTRACT_ADDRESS as string | undefined) || deployment.address || "";
+  (import.meta.env["VITE_CONTRACT_ADDRESS"] as string | undefined) || deployment.address || "";
 export const RPC_URL: string =
-  (import.meta.env.VITE_RPC_URL as string | undefined) || "http://127.0.0.1:8545";
-export const CHAIN_ID: number = Number(import.meta.env.VITE_CHAIN_ID || deployment.chainId || 31337);
+  (import.meta.env["VITE_RPC_URL"] as string | undefined) || "http://127.0.0.1:8545";
+export const CHAIN_ID: number = Number(import.meta.env["VITE_CHAIN_ID"] || deployment.chainId || 31337);
 export const CHAIN_ID_HEX = "0x" + CHAIN_ID.toString(16);
 
 // Human-readable ABI (matches blockchain/contracts/ProductTracking.sol)

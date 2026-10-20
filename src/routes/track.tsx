@@ -10,7 +10,7 @@ import { STATUSES } from "@/lib/contract";
 import { useBlockchain } from "@/lib/blockchain-context";
 
 export const Route = createFileRoute("/track")({
-  validateSearch: (s: Record<string, unknown>) => ({ id: typeof s.id === "string" ? s.id : undefined }),
+  validateSearch: (s: Record<string, unknown>): { id?: string } => (typeof s["id"] === "string" ? { id: s["id"] } : {}),
   head: () => ({
     meta: [
       { title: "Track Product · ChainTrack" },

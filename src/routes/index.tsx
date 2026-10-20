@@ -37,10 +37,10 @@ function Dashboard() {
     <AppShell title="Dashboard" subtitle="All figures are read live from the blockchain">
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <StatCard label="Total Products" value={total} icon={Boxes} tone="bg-navy text-navy-foreground" loading={loading} />
-        <StatCard label="Manufactured" value={counts[0]} icon={Factory} tone="bg-accent text-accent-foreground" loading={loading} />
-        <StatCard label="In Warehouse" value={counts[1]} icon={Warehouse} tone="bg-warning/15 text-warning-foreground" loading={loading} />
-        <StatCard label="Shipped" value={counts[2]} icon={Truck} tone="bg-info/15 text-info" loading={loading} />
-        <StatCard label="Delivered" value={counts[3]} icon={PackageCheck} tone="bg-success/15 text-success" loading={loading} />
+        <StatCard label="Manufactured" value={counts[0] ?? 0} icon={Factory} tone="bg-accent text-accent-foreground" loading={loading} />
+        <StatCard label="In Warehouse" value={counts[1] ?? 0} icon={Warehouse} tone="bg-warning/15 text-warning-foreground" loading={loading} />
+        <StatCard label="Shipped" value={counts[2] ?? 0} icon={Truck} tone="bg-info/15 text-info" loading={loading} />
+        <StatCard label="Delivered" value={counts[3] ?? 0} icon={PackageCheck} tone="bg-success/15 text-success" loading={loading} />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -48,7 +48,7 @@ function Dashboard() {
           <h2 className="font-semibold">Status distribution</h2>
           <div className="mt-6 space-y-4">
             {STATUSES.map((s, i) => {
-              const pct = total ? Math.round((counts[i] / total) * 100) : 0;
+              const pct = total ? Math.round(((counts[i] ?? 0) / total) * 100) : 0;
               return (
                 <div key={s}>
                   <div className="mb-1.5 flex justify-between text-sm"><span>{s}</span><span className="text-muted-foreground">{counts[i]} · {pct}%</span></div>

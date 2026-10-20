@@ -119,7 +119,7 @@ function AddProduct() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
   return (
     <label className="block space-y-1.5">
       <span className="text-sm font-medium">{label}</span>
