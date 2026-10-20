@@ -11,7 +11,7 @@ export function TrackingTimeline({ current, history }: { current: number; histor
       {STATUSES.map((label, i) => {
         const ev = history.find((h) => h.status === i);
         const done = i <= current;
-        const Icon = icons[i];
+        const Icon = icons[i]!;
         return (
           <li key={label} className="relative flex gap-4 pb-8 last:pb-0">
             {i < 3 && <span className={`absolute left-5 top-11 h-[calc(100%-2.75rem)] w-0.5 ${i < current ? "bg-success" : "bg-border"}`} />}

@@ -32,13 +32,13 @@ export function getReadProvider() {
   return readProvider;
 }
 
-export function getReadContract() {
+export function getReadContract(): any {
   if (!CONTRACT_ADDRESS) throw new Error("Contract address not configured. Run `npm run deploy` in /blockchain.");
   return new Contract(CONTRACT_ADDRESS, PRODUCT_TRACKING_ABI, getReadProvider());
 }
 
 /** Write contract: signs transactions with the user's MetaMask account. */
-export async function getWriteContract() {
+export async function getWriteContract(): Promise<any> {
   const eth = (window as unknown as { ethereum?: unknown }).ethereum;
   if (!eth) throw new Error("MetaMask is not installed.");
   const provider = new BrowserProvider(eth as never);
